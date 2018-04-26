@@ -76,6 +76,5 @@ namespace ImgIC
             }
             return img;
         }
-
     }
 }
