@@ -10,8 +10,8 @@ namespace ImgIC
     {
         public int X { get; set; }
         public int Y { get; set; }
-        public string Xbin { get; set; }
-        public string Ybin { get; set; }
+        public int[] Xbin { get; set; }
+        public int[] Ybin { get; set; }
         public int Value { get; set; }
         public int Xdistante { get; set; }
         public bool Evolucionado { get; set; }

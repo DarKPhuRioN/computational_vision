@@ -21,8 +21,7 @@ namespace ImgIC
         }
 
         private void button1_Click(object sender, EventArgs e)
-        {
-
+        { 
             try
             {
                 if (openFileDialog1.ShowDialog() == DialogResult.OK)
@@ -80,14 +79,24 @@ namespace ImgIC
                 richTextBox1.Text = richTextBox1.Text + val + "\n";
                 val = "";
             }
-            pp.CrearPoblacion(piture.geti(), piture.getj(), ma,Salida1);
+            pp.CrearPoblacion(piture.geti(), piture.getj(),100, ma,Salida1);
 
         }
         private void Form1_Load(object sender, EventArgs e)
         {
 
         }
-
+        private void graficar_puntos(individuo[] poblacion)
+        {
+            IMG up = new IMG(pictureBox1.Image);
+            this.pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.Image = pictureBox1.Image;
+            for (int i = 0; i < poblacion.Length; i++)
+            {
+                pictureBox2.Image = up.ubicar_puntos(poblacion[i].X, poblacion[i].Y, pictureBox2.Image);
+            }
+            this.pictureBox2.Refresh();
+        }
 
     }
 }
