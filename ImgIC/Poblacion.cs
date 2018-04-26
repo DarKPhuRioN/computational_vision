@@ -40,7 +40,7 @@ namespace ImgIC
             return DeciToBin(value).Length;
         }
 
-        public void CrearPoblacion(int W, int H, int tamaño, int[,] ma, System.Windows.Forms.ListBox Salida1)
+        public individuo[] CrearPoblacion(int W, int H, int tamaño, int[,] ma, System.Windows.Forms.ListBox Salida1)
         {
             ind = new individuo[tamaño];
             for (int n = 0; n < tamaño; n++)
@@ -59,6 +59,7 @@ namespace ImgIC
                 Salida1.Items.Add("[" + n + "]Xdistante : ->" + ind[n].Xdistante);
                 ind[n].Fenotipo = ind[n].Xdistante + ind[n].Value;
             }
+            return ind;
         }
 
         public int Xdistante(individuo[] all, individuo indActual, int umbral)
