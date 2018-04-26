@@ -221,5 +221,42 @@ namespace ImgIC
             copia.Fenotipo = copia.Value + copia.Xdistante;
             return (copia.Fenotipo >= indi.Fenotipo) ? copia : indi;
         }
+
+        public individuo[] Crear_generacion(individuo[] poblacion, float cruce, float mutacion, int umbral_distancia, Image imagen, int umbral)
+        {
+            int numero_cruces = (int)(cruce * (float)poblacion.Length);
+            numero_cruces += ((numero_cruces % 2 == 1)) ? 1 : 0;
+            numero_cruces = numero_cruces / 2;
+            int numero_mutaciones = poblacion.Length - (numero_cruces * 2);
+            for (int i = 1; i <= numero_cruces; i++)
+            {
+                int individuo1 = 0, individuo2 = 0;
+                bool guardian = true;
+                while (guardian)
+                {
+                    individuo1 = ale.Next(poblacion.Count);
+                    individuo2 = ale.Next(poblacion.Count);
+                    guardian = (poblacion[individuo1].Evolucionado == false) && (poblacion[individuo2].Evolucionado == false) ? false : true;
+                }
+                individuo[] cruzados =funcion_cruce(individuo1, individuo2, poblacion.ToArray(), umbral_distancia, imagen, umbral);
+                poblacion[individuo1] = cruzados[0];
+                poblacion[individuo2] = cruzados[1];
+                poblacion[individuo1].Evolucionado = true;
+                poblacion[individuo2].Evolucionado = true;
+            }
+            for (int i = 1; i <= numero_mutaciones; i++)
+            {
+                int individuo1 = 0;
+                bool guardian2 = true;
+                while (guardian2)
+                {
+                    individuo1 = ale.Next(poblacion.Count);
+                    guardian2 = (poblacion[individuo1].Evolucionado == false) ? false : true;
+                }
+                poblacion[individuo1] = funcion_mutar(poblacion[individuo1], poblacion.ToArray(), imagen, umbral, umbral_distancia);
+                poblacion[individuo1].Evolucionado = true;
+            }
+            return poblacion;
+        }
     }
 }
