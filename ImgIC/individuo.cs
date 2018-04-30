@@ -16,5 +16,7 @@ namespace ImgIC
         public int Xdistante { get; set; }
         public bool Evolucionado { get; set; }
         public int Fenotipo { get; set; }
+        
+
     }
 }

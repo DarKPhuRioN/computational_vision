@@ -67,3 +67,12 @@ F:\ImgIC\ImgIC\obj\Debug\ImgIC.pdb
 F:\usb prestada\ImgIC\ImgIC\bin\Debug\ImgIC.exe.config
 F:\usb prestada\ImgIC\ImgIC\obj\Debug\ImgIC.exe
 F:\usb prestada\ImgIC\ImgIC\obj\Debug\ImgIC.pdb
+D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.exe.config
+D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.exe
+D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.pdb
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.Layout.resources
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.Properties.Resources.resources
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.csproj.GenerateResource.Cache
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.exe
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.pdb
+D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.csprojResolveAssemblyReference.cache

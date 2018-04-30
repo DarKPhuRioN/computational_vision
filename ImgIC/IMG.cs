@@ -10,45 +10,46 @@ namespace ImgIC
     class IMG
     {
         private int Width, Height;
-        private Bitmap img;
+        private Bitmap Img;
         private int[,] matriz;
-        public IMG(Image img)
-        {
-            this.img = new Bitmap(img); 
+        private Image imgori;
+        public IMG() {
         }
+ 
         public IMG(int Width, int Height, Image img)
         {
             this.Width = Width;
             this.Height = Height;
-            this.img = new Bitmap(img);
+            this.Img = new Bitmap(img);
             this.matriz = new int[Width, Height];
+            imgori = img;
         }
         public Bitmap gray()
         {
-            for (int i = 0; i < this.img.Width; i++)
+            for (int i = 0; i < this.Img.Width; i++)
             {
-                for (int j = 0; j < this.img.Height; j++)
+                for (int j = 0; j < this.Img.Height; j++)
                 {
-                    Color color = (img.GetPixel(i, j));
+                    Color color = (Img.GetPixel(i, j));
                     byte gris = (byte)(color.R * 0.3f + color.G * 0.59f + color.B * 0.11f);
                     if (gris > 100)
                     {
                         matriz[i, j] = 1;
-                        img.SetPixel(i, j, Color.FromArgb(gris));
+                        Img.SetPixel(i, j, Color.FromArgb(gris));
                     }
                     else
                     {
                         matriz[i, j] = 0;
-                        img.SetPixel(i, j, Color.FromArgb(0, 0, 0));
+                        Img.SetPixel(i, j, Color.FromArgb(0, 0, 0));
                     }
 
                 }
             }
-            return this.img;
+            return this.Img;
         }
         public int gray2(individuo ind, int umbral) //preguintarle mayor o menor
         {
-            Color color = (img.GetPixel(ind.X, ind.Y));
+            Color color = (Img.GetPixel(ind.X, ind.Y));
             byte gris = (byte)(color.R * 0.3f + color.G * 0.59f + color.B * 0.11f);
             return (gris >= umbral) ? 1 : 0;
         }
@@ -61,6 +62,9 @@ namespace ImgIC
         {
             return Width;
         }
+        public Image getImg() {
+            return imgori;
+        }
         public int getj()
         {
             return Height;
@@ -68,13 +72,12 @@ namespace ImgIC
         public Image ubicar_puntos(int x, int y, Image image)
         {
             Graphics temp;
-            img = new Bitmap(image);
-            Pen penTest = new System.Drawing.Pen(Brushes.Red);
-            using (temp = Graphics.FromImage(img))
+            Pen penTest = new System.Drawing.Pen(Brushes.Green);
+            using (temp = Graphics.FromImage(image))
             {
-                temp.DrawEllipse(penTest, x, y, 5, 5);
+                temp.DrawEllipse(penTest, x, y, 4, 4);
             }
-            return img;
+            return image;
         }
     }
 }
