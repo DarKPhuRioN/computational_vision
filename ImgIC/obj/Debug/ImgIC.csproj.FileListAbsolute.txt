@@ -75,4 +75,3 @@ D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.Properties.Resou
 D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.csproj.GenerateResource.Cache
 D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.exe
 D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.pdb
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.csprojResolveAssemblyReference.cache

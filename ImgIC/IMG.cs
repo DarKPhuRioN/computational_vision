@@ -13,9 +13,10 @@ namespace ImgIC
         private Bitmap Img;
         private int[,] matriz;
         private Image imgori;
-        public IMG() {
+        public IMG()
+        {
         }
- 
+
         public IMG(int Width, int Height, Image img)
         {
             this.Width = Width;
@@ -58,14 +59,15 @@ namespace ImgIC
         {
             return this.matriz;
         }
-        public int geti()
+        public int getW()
         {
             return Width;
         }
-        public Image getImg() {
+        public Image getImg()
+        {
             return imgori;
         }
-        public int getj()
+        public int getH()
         {
             return Height;
         }

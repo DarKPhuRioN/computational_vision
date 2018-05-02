@@ -13,9 +13,9 @@ namespace ImgIC
         public int[] Xbin { get; set; }
         public int[] Ybin { get; set; }
         public int Value { get; set; }
-        public int Xdistante { get; set; }
-        public bool Evolucionado { get; set; }
-        public int Fenotipo { get; set; }
+        public int Xdist { get; set; }
+        public bool Evolved { get; set; }
+        public int Phenotype { get; set; }
         
 
     }
