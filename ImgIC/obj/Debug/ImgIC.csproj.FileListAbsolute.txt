@@ -61,17 +61,23 @@ F:/ImgIC/ImgIC/obj/Debug/ImgIC.pdb
 /Volumes/USB/ImgIC/ImgIC/obj/Debug/ImgIC.csproj.CoreCompileInputs.cache
 /Volumes/USB/ImgIC/ImgIC/obj/Debug/ImgIC.exe
 /Volumes/USB/ImgIC/ImgIC/obj/Debug/ImgIC.pdb
-F:\ImgIC\ImgIC\bin\Debug\ImgIC.exe.config
-F:\ImgIC\ImgIC\obj\Debug\ImgIC.exe
-F:\ImgIC\ImgIC\obj\Debug\ImgIC.pdb
-F:\usb prestada\ImgIC\ImgIC\bin\Debug\ImgIC.exe.config
-F:\usb prestada\ImgIC\ImgIC\obj\Debug\ImgIC.exe
-F:\usb prestada\ImgIC\ImgIC\obj\Debug\ImgIC.pdb
-D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.exe.config
-D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.exe
-D:\Documentos\GitHub\computational_vision\ImgIC\bin\Debug\ImgIC.pdb
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.Layout.resources
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.Properties.Resources.resources
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.csproj.GenerateResource.Cache
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.exe
-D:\Documentos\GitHub\computational_vision\ImgIC\obj\Debug\ImgIC.pdb
+F:/usb prestada/ImgIC/ImgIC/bin/Debug/ImgIC.exe.config
+F:/usb prestada/ImgIC/ImgIC/obj/Debug/ImgIC.exe
+F:/usb prestada/ImgIC/ImgIC/obj/Debug/ImgIC.pdb
+D:/Documentos/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.exe.config
+D:/Documentos/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.exe
+D:/Documentos/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.pdb
+D:/Documentos/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.Layout.resources
+D:/Documentos/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.Properties.Resources.resources
+D:/Documentos/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.csproj.GenerateResource.Cache
+D:/Documentos/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.exe
+D:/Documentos/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.pdb
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.exe.config
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.exe
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/bin/Debug/ImgIC.pdb
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.Layout.resources
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.Properties.Resources.resources
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.csproj.GenerateResource.Cache
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.csproj.CoreCompileInputs.cache
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.exe
+/Users/macair/Documents/GitHub/computational_vision/ImgIC/obj/Debug/ImgIC.pdb

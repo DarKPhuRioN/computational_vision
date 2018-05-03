@@ -49,7 +49,8 @@ namespace ImgIC
             CleanOut.Enabled = true;
             picture = new IMG(ImagenInicial.Image.Size.Width, ImagenInicial.Image.Size.Height, ImagenInicial.Image);
             arraypoblation = pb.CrearPoblacion(picture.getW(), picture.getH(), int.Parse(numInd.Text), int.Parse(Umbral.Text), picture.getImg());
-            Poblacion ctlPoblation = new Poblacion(); // ctlPoblation.contador_generacion = 0;
+            Poblacion ctlPoblation = new Poblacion(); // 
+            ctlPoblation.Generacion = 0;
             Salida.Items.Add("Población inicial generada");
             Salida.Refresh();
             MostrarPoblacion(arraypoblation);
