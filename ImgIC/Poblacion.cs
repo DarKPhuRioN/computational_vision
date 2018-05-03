@@ -18,7 +18,6 @@ namespace ImgIC
         public Poblacion()//constructor por defecto
         {
             Derivada = new double[10];
-            Generacion = 0;
         }
         public int[] DeciToBin(int number)//convertir decimal a binario
         {
