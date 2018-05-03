@@ -1,6 +1,6 @@
 ﻿<Properties StartupConfiguration="{A48DBD38-4753-4ABD-98F5-B9368555C16A}|Default">
   <MonoDevelop.Ide.ItemProperties.ImgIC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ImgIC/Layout.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ImgIC/Poblacion.cs">
     <Files>
       <File FileName="ImgIC/Layout.cs" Line="55" Column="22" />
       <File FileName="ImgIC/Poblacion.cs" Line="20" Column="39" />

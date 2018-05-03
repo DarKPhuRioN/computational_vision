@@ -25,7 +25,7 @@ namespace ImgIC
             int j = 0;
            for (int i = 0; i < ret.Length; i++)
             {
-                ret[i] = 9;
+                ret[i] = 0;
             }
             bool op = true;
             while (op)
@@ -47,17 +47,10 @@ namespace ImgIC
 
         public int BinToDeci(int[] bin)//convertir Binario a decimal
         {
-            int res = 0, con = 0;
-            for (int i = 0; i < bin.Length; i++)//averiguo cuantos campos del array son verdaderos
+            int res = 0;
+            for (int i = 0; i < bin.Length; i++)
             {
-                if (bin[con] != 9)
-                {
-                    con++;
-                }
-            }
-            for (int i = 0; i < con; i++)
-            {
-                res += bin[i] * (int)Math.Pow(2, (con - 1) - i);
+                res += bin[i] * (int)Math.Pow(2, i);
             }
             return res;   
         }
