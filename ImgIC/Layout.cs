@@ -69,6 +69,7 @@ namespace ImgIC
                    int.Parse(Umbral_d.Text),
                    picture.getImg(),
                    int.Parse(Umbral.Text));
+                arraypoblation = pb.UpdateState(arraypoblation);
                 ctlPoblation.Generacion++;
                 cont++;
                 Salida.Items.Add("Generación: " + cont);

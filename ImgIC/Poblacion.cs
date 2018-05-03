@@ -268,5 +268,13 @@ namespace ImgIC
             }
             return poblacion;
         }
+        public individuo[] UpdateState(individuo[] poblation)
+        {
+            for (int i = 0; i < poblation.Length; i++)
+            {
+                poblation[i].Evolved = false;
+            }
+            return poblation;
+        }
     }
 }
