@@ -85,6 +85,7 @@ namespace ImgIC
             }
             Salida.Items.Add("Proceso terminado");
             Salida.Refresh();
+            //MostrarPoblacion(arraypoblation);
         }
 
         private void cleanImg_Click(object sender, EventArgs e)
