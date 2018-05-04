@@ -16,7 +16,5 @@ namespace ImgIC
         public int Xdist { get; set; }
         public bool Evolved { get; set; }
         public int Phenotype { get; set; }
-        
-
     }
 }

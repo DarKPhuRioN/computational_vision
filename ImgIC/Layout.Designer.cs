@@ -285,6 +285,7 @@
             this.ImagenFinal.Location = new System.Drawing.Point(6, 22);
             this.ImagenFinal.Name = "ImagenFinal";
             this.ImagenFinal.Size = new System.Drawing.Size(1011, 422);
+            this.ImagenFinal.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.ImagenFinal.TabIndex = 0;
             this.ImagenFinal.TabStop = false;
             // 

@@ -12,7 +12,7 @@ namespace ImgIC
         private int Width, Height;
         private Bitmap Img;
         private int[,] matriz;
-        private Image imgori;
+
         public IMG()
         {
         }
@@ -23,13 +23,13 @@ namespace ImgIC
             this.Height = Height;
             this.Img = new Bitmap(img);
             this.matriz = new int[Width, Height];
-            imgori = img;
         }
+
         public Bitmap gray()
         {
-            for (int i = 0; i < this.Img.Width; i++)
+            for (int i = 0; i < this.Width; i++)
             {
-                for (int j = 0; j < this.Img.Height; j++)
+                for (int j = 0; j < this.Height; j++)
                 {
                     Color color = (Img.GetPixel(i, j));
                     byte gris = (byte)(color.R * 0.3f + color.G * 0.59f + color.B * 0.11f);
@@ -48,6 +48,7 @@ namespace ImgIC
             }
             return this.Img;
         }
+
         public int gray2(individuo ind, int umbral) //preguintarle mayor o menor
         {
             Color color = (Img.GetPixel(ind.X, ind.Y));
@@ -59,23 +60,21 @@ namespace ImgIC
         {
             return this.matriz;
         }
+
         public int getW()
         {
             return Width;
         }
-        public Image getImg()
-        {
-            return imgori;
-        }
+
         public int getH()
         {
             return Height;
         }
+
         public Image ubicar_puntos(int x, int y, Image image)
         {
-            Graphics temp;
             Pen penTest = new System.Drawing.Pen(Brushes.Green);
-            using (temp = Graphics.FromImage(image))
+            using (Graphics temp = Graphics.FromImage(image))
             {
                 temp.DrawEllipse(penTest, x, y, 4, 4);
             }

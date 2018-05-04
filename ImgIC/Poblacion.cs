@@ -11,19 +11,19 @@ namespace ImgIC
     {
         private Random ale = new Random();
         private individuo[] ind;
-        private IMG picture;
-
         public int Generacion { get; set; }
         public double[] Derivada { get; set; }
+
         public Poblacion()//constructor por defecto
         {
             Derivada = new double[10];
         }
+
         public int[] DeciToBin(int number)//convertir decimal a binario
         {
             int[] ret = new int[10];
             int j = 0;
-           for (int i = 0; i < ret.Length; i++)
+            for (int i = 0; i < ret.Length; i++)
             {
                 ret[i] = 0;
             }
@@ -60,9 +60,8 @@ namespace ImgIC
             return DeciToBin(value).Length;
         }
 
-        public individuo[] CrearPoblacion(int W, int H, int tamaño, int umbral, Image img)
-        {//mejorar
-             picture = new IMG(img.Size.Width, img.Size.Height, img);
+        public individuo[] CrearPoblacion(int W, int H, int tamaño, int umbral, IMG picture)//Crea la poblacion inicial
+        {
             ind = new individuo[tamaño];
             for (int n = 0; n < tamaño; n++)
             {
@@ -71,19 +70,18 @@ namespace ImgIC
                 ind[n].Y = ale.Next(0, H);
                 ind[n].Evolved = false;
                 ind[n].Xbin = DeciToBin(ind[n].X);
-                int[] cc = DeciToBin(10);
                 ind[n].Ybin = DeciToBin(ind[n].Y);
                 ind[n].Value = picture.gray2(ind[n], umbral);
             }
             for (int n = 0; n < tamaño; n++)
             {
-                ind[n].Xdist = Xdistante(ind, ind[n], umbral);//individuo actual, toda la poblacion
+                ind[n].Xdist = Xdistante(ind, ind[n], umbral);
                 ind[n].Phenotype = ind[n].Xdist + ind[n].Value;
             }
             return ind;
         }
 
-        public int Xdistante(individuo[] all, individuo indActual, int umbral)
+        public int Xdistante(individuo[] all, individuo indActual, int umbral)//Calcula Xdistante
         {
             int acum = 0;
             for (int i = 0; i < all.Length; i++)
@@ -104,7 +102,7 @@ namespace ImgIC
             return acum / ind.Length;
         }
 
-        public int calculo_derivada(double[] der, double calidad)
+        public int calculo_derivada(double[] der, double calidad)// Calcula la derivada
         {
             double acum = 0;
             for (int i = 0; i < der.Length; i++)
@@ -115,9 +113,9 @@ namespace ImgIC
         }
 
 
-        public individuo[] funcion_cruce(int ind1, int ind2, individuo[] poblacion, int umbral_d, Image img, int umbral)
+        public individuo[] funcion_cruce(int ind1, int ind2, individuo[] poblacion, int umbral_d, IMG picture, int umbral)
         {
-            int pivote = 0, test1 = 0, test2 = 0, max = 0, contador = 0;//almacenara el tama;o max de la lista
+            int pivote = 0, test1 = 0, test2 = 0, max = 0, contador = 0;
             int[] indX = new int[10], ind2X = new int[10], indY = new int[10], ind2Y = new int[10], temp = new int[10], Phenotypes = new int[4], best = new int[2];
             bool option = true;
             while (option)            //violada en x
@@ -130,7 +128,7 @@ namespace ImgIC
                 ind2X[pivote] = temp[pivote];
                 test1 = BinToDeci(indX);
                 test2 = BinToDeci(ind2X);
-                option = (test1 < img.Size.Width) && (test2 < img.Size.Width) ? false : true;
+                option = (test1 < picture.getW()) && (test2 < picture.getW()) ? false : true;
             }
             option = true;
             while (option)            //violada en y
@@ -143,26 +141,23 @@ namespace ImgIC
                 ind2Y[pivote] = temp[pivote];
                 test1 = BinToDeci(indY);
                 test2 = BinToDeci(ind2Y);
-                option = (test1 < img.Size.Height) && (test2 < img.Size.Height) ? false : true;
-            }
-            //Determinacion del fenotipo de los violados
+                option = (test1 < picture.getH()) && (test2 < picture.getH()) ? false : true;
+            } //Determinacion del fenotipo de los violados
             individuo son1 = new individuo(), son2 = new individuo();
-            IMG imagenparaalgo = new IMG(img.Size.Width, img.Size.Height, img);
             son1.Xbin = indX;
             son1.Ybin = indY;
             son1.X = BinToDeci(son1.Xbin);
             son1.Y = BinToDeci(son1.Ybin);
             son1.Xdist = Xdistante(poblacion, son1, umbral_d);
-            son1.Value = imagenparaalgo.gray2(son1, umbral);
+            son1.Value = picture.gray2(son1, umbral);
             son1.Phenotype = son1.Xdist + son1.Value;
             son2.Xbin = ind2X;
             son2.Ybin = ind2Y;
             son2.X = BinToDeci(son2.Xbin);
             son2.Y = BinToDeci(son2.Ybin);
             son2.Xdist = Xdistante(poblacion, son2, umbral_d);
-            son2.Value = imagenparaalgo.gray2(son2, umbral);
+            son2.Value = picture.gray2(son2, umbral);
             son2.Phenotype = son2.Xdist + son2.Value;
-            //the best
             List<individuo> poblation = new List<individuo>();
             Phenotypes[0] = poblacion[ind1].Phenotype;
             Phenotypes[1] = poblacion[ind2].Phenotype;
@@ -176,8 +171,7 @@ namespace ImgIC
                     {
                         max = ((Phenotypes[j] > Phenotypes[k]) && (j != k)) ? j : 0;
                     }
-                }
-                //the best
+                } //the best
                 if ((contador == 1) && (max == 1))
                 {
                     max = 0;
@@ -204,10 +198,9 @@ namespace ImgIC
             return poblation.ToArray(); //convertir list to array
         }
 
-        public individuo funcion_mutar(individuo indi, individuo[] Poblacion, Image img, int umbral, int umbral_d)
+        public individuo funcion_mutar(individuo indi, individuo[] Poblacion, IMG picture, int umbral, int umbral_d)
         {//mejorar
             individuo copia = indi;
-            IMG paraalgo = new IMG(img.Size.Width, img.Size.Height, img);
             int pivote = 0, prueba = 0;
             bool op = true;
             while (op)//Mutar en X
@@ -215,7 +208,7 @@ namespace ImgIC
                 pivote = ale.Next(10);
                 copia.Xbin[pivote] = (copia.Xbin[pivote] == 0) ? 1 : 0;
                 prueba = BinToDeci(copia.Xbin);
-                op = (prueba < img.Size.Width) ? false : true;
+                op = (prueba < picture.getW()) ? false : true;
             }
             op = true;
             while (op)//Mutar en Y
@@ -223,17 +216,17 @@ namespace ImgIC
                 pivote = ale.Next(10);
                 copia.Ybin[pivote] = (copia.Ybin[pivote] == 0) ? 1 : 0;
                 prueba = BinToDeci(copia.Ybin);
-                op = (prueba < img.Size.Height) ? false : true;
+                op = (prueba < picture.getH()) ? false : true;
             }
             copia.X = BinToDeci(copia.Xbin);
             copia.Y = BinToDeci(copia.Ybin);
-            copia.Value = paraalgo.gray2(copia, umbral);
+            copia.Value = picture.gray2(copia, umbral);
             copia.Xdist = Xdistante(Poblacion, copia, umbral_d);
             copia.Phenotype = copia.Value + copia.Xdist;
             return (copia.Phenotype >= indi.Phenotype) ? copia : indi;
         }
 
-        public individuo[] Crear_generacion(individuo[] poblacion, float cruce, float mutacion, int umbral_d, Image imagen, int umbral)
+        public individuo[] Crear_generacion(individuo[] poblacion, float cruce, float mutacion, int umbral_d, IMG picture, int umbral)
         {
             int numero_cruces = (int)(cruce * (float)poblacion.Length), individuo1 = 0, individuo2 = 0, numero_mutaciones = 0;
             numero_cruces += ((numero_cruces % 2 == 1)) ? 1 : 0;
@@ -248,7 +241,7 @@ namespace ImgIC
                     individuo2 = ale.Next(poblacion.Length);
                     op = (poblacion[individuo1].Evolved == false) && (poblacion[individuo2].Evolved == false) ? false : true;
                 }
-                individuo[] cruzados = funcion_cruce(individuo1, individuo2, poblacion.ToArray(), umbral_d, imagen, umbral);
+                individuo[] cruzados = funcion_cruce(individuo1, individuo2, poblacion.ToArray(), umbral_d, picture, umbral);
                 poblacion[individuo1] = cruzados[0];
                 poblacion[individuo1].Evolved = true;
                 poblacion[individuo2] = cruzados[1];
@@ -263,11 +256,12 @@ namespace ImgIC
                     individuo1 = ale.Next(poblacion.Length);
                     op = (poblacion[individuo1].Evolved == false) ? false : true;
                 }
-                poblacion[individuo1] = funcion_mutar(poblacion[individuo1], poblacion.ToArray(), imagen, umbral, umbral_d);
+                poblacion[individuo1] = funcion_mutar(poblacion[individuo1], poblacion.ToArray(), picture, umbral, umbral_d);
                 poblacion[individuo1].Evolved = true;
             }
             return poblacion;
         }
+
         public individuo[] UpdateState(individuo[] poblation)
         {
             for (int i = 0; i < poblation.Length; i++)
