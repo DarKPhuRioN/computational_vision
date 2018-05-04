@@ -81,13 +81,13 @@ namespace ImgIC
             return ind;
         }
 
-        public int Xdistante(individuo[] all, individuo indActual, int umbral)//Calcula Xdistante
+        public int Xdistante(individuo[] all, individuo indActual, int umbral_d)//Calcula Xdistante
         {
             int acum = 0;
             for (int i = 0; i < all.Length; i++)
             {
                 double raiz = Math.Sqrt(Math.Pow((indActual.X - all[i].X), 2) + Math.Pow((indActual.Y - all[i].Y), 2));
-                acum += (raiz <= umbral) ? 1 : 0;
+                 acum += (raiz <= umbral_d) ? 1 : 0;
             }
             return (acum == 2) ? 1 : 0;
         }
