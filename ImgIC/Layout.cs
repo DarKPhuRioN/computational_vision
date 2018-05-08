@@ -50,38 +50,37 @@ namespace ImgIC
             CleanOut.Enabled = true;
             arraypoblation = pb.CrearPoblacion(picture.getW(), picture.getH(), int.Parse(numInd.Text), int.Parse(Umbral.Text), picture);
             Poblacion ctlPoblation = new Poblacion(); // 
-            ctlPoblation.Generacion = 0;
+            ctlPoblation.Generation = 0;
             Salida.Items.Add("Población inicial generada");
             Salida.Refresh();
-            MostrarPoblacion(arraypoblation);
+            PrintPoblation(arraypoblation);
             Salida.Items.Add("Graficación de la población inicial");
             Salida.Refresh();//promedio o calidad poblacional
-            ctlPoblation.Derivada[ctlPoblation.Generacion] = pb.Promedio(arraypoblation);
-            Salida.Items.Add("Calidad población inicial: " + ctlPoblation.Derivada[ctlPoblation.Generacion].ToString());
+            ctlPoblation.Derivative[ctlPoblation.Generation] = pb.Average(arraypoblation);
+            Salida.Items.Add("Calidad población inicial: " + ctlPoblation.Derivative[ctlPoblation.Generation].ToString());
             Salida.Refresh();
-            int derivada = ctlPoblation.calculo_derivada(ctlPoblation.Derivada, ctlPoblation.Derivada[ctlPoblation.Generacion]), cont = 0;
+            int derivada = ctlPoblation.derivate_calculation(ctlPoblation.Derivative, ctlPoblation.Derivative[ctlPoblation.Generation]), cont = 0;
             Salida.Items.Add("Derivada : " + derivada);
             while (derivada == 0)
             {
-                arraypoblation = pb.Crear_generacion(arraypoblation,
+                arraypoblation = pb.Create_Generation(arraypoblation,
                   (float)Convert.ToSingle(Cruce.Text.Replace('.', ',')),
-                   (float)Convert.ToSingle(Mutacion.Text.Replace('.', ',')),
                    int.Parse(Umbral_d.Text),
                    picture,
                    int.Parse(Umbral.Text));
                 arraypoblation = pb.UpdateState(arraypoblation);
-                ctlPoblation.Generacion++;
+                ctlPoblation.Generation++;
                 cont++;
                 Salida.Items.Add("Generación: " + cont);
                 Salida.Refresh();
-                if (ctlPoblation.Generacion == 10)
+                if (ctlPoblation.Generation == 10)
                 {
-                    ctlPoblation.Generacion = 0;
+                    ctlPoblation.Generation = 0;
                 }
-                ctlPoblation.Derivada[ctlPoblation.Generacion] = pb.Promedio(arraypoblation);
-                Salida.Items.Add("Calidad de la población: " + ctlPoblation.Derivada[ctlPoblation.Generacion].ToString());
+                ctlPoblation.Derivative[ctlPoblation.Generation] = pb.Average(arraypoblation);
+                Salida.Items.Add("Calidad de la población: " + ctlPoblation.Derivative[ctlPoblation.Generation].ToString());
                 Salida.Refresh();
-                derivada = ctlPoblation.calculo_derivada(ctlPoblation.Derivada, ctlPoblation.Derivada[ctlPoblation.Generacion]);
+                derivada = ctlPoblation.derivate_calculation(ctlPoblation.Derivative, ctlPoblation.Derivative[ctlPoblation.Generation]);
             }
             Salida.Items.Add("Derivada : " + derivada);
             Salida.Items.Add("Proceso terminado");
@@ -98,12 +97,12 @@ namespace ImgIC
             Salida.ClearSelected();
         }
 
-        private void MostrarPoblacion(individuo[] poblacion)
+        private void PrintPoblation(individuo[] poblacion)
         {
             ImagenFinal.Image = ImagenInicial.Image;
             for (int i = 0; i < poblacion.Length; i++)
             {
-                ImagenFinal.Image = picture.ubicar_puntos(poblacion[i].X, poblacion[i].Y, ImagenFinal.Image);
+                ImagenFinal.Image = picture.locate_points(poblacion[i].X, poblacion[i].Y, ImagenFinal.Image);
             }
             this.ImagenFinal.Refresh();
         }

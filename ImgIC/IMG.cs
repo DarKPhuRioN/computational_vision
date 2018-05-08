@@ -71,7 +71,7 @@ namespace ImgIC
             return Height;
         }
 
-        public Image ubicar_puntos(int x, int y, Image image)
+        public Image locate_points(int x, int y, Image image)
         {
             Pen penTest = new System.Drawing.Pen(Brushes.Green);
             using (Graphics temp = Graphics.FromImage(image))

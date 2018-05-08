@@ -1,10 +1,11 @@
 ﻿<Properties StartupConfiguration="{A48DBD38-4753-4ABD-98F5-B9368555C16A}|Default">
   <MonoDevelop.Ide.ItemProperties.ImgIC PreferredExecutionTarget="MonoDevelop.Default" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="ImgIC/Layout.Designer.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="ImgIC/IMG.cs">
     <Files>
-      <File FileName="ImgIC/Layout.cs" Line="86" Column="14" />
-      <File FileName="ImgIC/Poblacion.cs" Line="274" Column="2" />
-      <File FileName="ImgIC/Layout.Designer.cs" Line="1" Column="1" />
+      <File FileName="ImgIC/Layout.cs" Line="62" Column="57" />
+      <File FileName="ImgIC/Poblacion.cs" Line="19" Column="23" />
+      <File FileName="ImgIC/individuo.cs" Line="1" Column="1" />
+      <File FileName="ImgIC/IMG.cs" Line="84" Column="2" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
