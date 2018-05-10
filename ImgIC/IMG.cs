@@ -53,7 +53,7 @@ namespace ImgIC
         {
             Color color = (Img.GetPixel(ind.X, ind.Y));
             byte gris = (byte)(color.R * 0.3f + color.G * 0.59f + color.B * 0.11f);
-            return (gris >= umbral) ? 1 : 0;
+            return (gris >= umbral) ? 1 : 0; //Cambiarlo a <=
         }
 
         public int[,] getmatriz()
