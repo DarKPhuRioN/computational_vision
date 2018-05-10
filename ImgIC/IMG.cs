@@ -26,7 +26,7 @@ namespace ImgIC
         }
 
         public Bitmap gray()
-        {
+        {//Por si quiere binarisar la imagen en una matriz
             for (int i = 0; i < this.Width; i++)
             {
                 for (int j = 0; j < this.Height; j++)
